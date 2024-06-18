@@ -4,13 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class Vista extends JFrame{
+public class VistaPrincipal extends JFrame{
 
     private JButton gestiondDeCursosButton;
     private JButton gestionDeEmpleadosButton;
     private JButton liquidacionDeSueldosButton;
 
-    public Vista(){
+    public VistaPrincipal(){
         super("Gestion de Empleados y Cursos :3");
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,5 +35,4 @@ public class Vista extends JFrame{
     public void agregarListenerLiquidacionSueldos(ActionListener listener){
         liquidacionDeSueldosButton.addActionListener(listener);
     }
-
 }
