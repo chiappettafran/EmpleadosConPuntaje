@@ -84,8 +84,5 @@ public class VistaModificarEliminarCurso extends JFrame {
         add(bottomPanel, BorderLayout.SOUTH);
 
         setVisible(true);
-
-
     }
-
 }
