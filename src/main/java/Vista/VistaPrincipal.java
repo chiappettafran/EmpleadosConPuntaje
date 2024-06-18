@@ -1,7 +1,10 @@
 package Vista;
 
+import Vista.GestionDeCursos.VistaGestionDeCursos;
+
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VistaPrincipal extends JFrame{
@@ -24,6 +27,13 @@ public class VistaPrincipal extends JFrame{
 
         add(panel);
         setVisible(true);
+
+        agregarListenerGestionCursos(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new VistaGestionDeCursos();
+            }
+        });
     }
 
     public void agregarListenerGestionCursos(ActionListener listener){

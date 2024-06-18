@@ -2,6 +2,7 @@ package Vista.GestionDeCursos;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class VistaGestionDeCursos extends JFrame {
@@ -26,6 +27,27 @@ public class VistaGestionDeCursos extends JFrame {
 
         add(panel);
         setVisible(true);
+
+        agregarListenerAgregarCurso(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new VistaAgregarCurso();
+            }
+        });
+
+        agregarListenerConsultarConcursantes(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new VistaConsultarConcursantes();
+            }
+        });
+
+        agregarListenerModificarEliminarCurso(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new VistaModificarEliminarCurso();
+            }
+        });
     }
 
     public void agregarListenerConsultarConcursantes(ActionListener listener){

@@ -17,7 +17,7 @@ public class VistaConsultarConcursantes extends JFrame {
         setSize(1200,600);
 
         String[] cursos = {};//Aca se agregarian los cursos
-        String[] estados = {"Aprovado", "Cursando Actualmente", "Aprovado Vencido", "Todos"};
+        String[] estados = {"Aprobado", "Cursando Actualmente", "Aprobado Vencido", "Todos"};
 
         cursosComboBox = new JComboBox<>(cursos);
         estadoCursadoComboBox = new JComboBox<>(estados);
