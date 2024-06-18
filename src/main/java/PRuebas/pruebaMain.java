@@ -20,6 +20,6 @@ public class pruebaMain {
         //si empezo algun curso ese mes
         //si finalizo algun curso ese mes
     public static void main(String[] args) {
-        new VistaModificarEliminarCurso();
+        new VistaGestionDeCursos();
     }
 }
