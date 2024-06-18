@@ -1,0 +1,289 @@
+2024-06-17 22:18:02.868123-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE empleados (\000d\000alegajo int PRIMARY KEY AUTO_INCREMENT,\000d\000apermanente boolean,\000d\000adni int,\000d\000adireccion VARCHAR (255),\000d\000afuncion VARCHAR(255),\000d\000afechaVencimientoContrato DATE[*]"; se esperaba "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE empleados (\000d\000alegajo int PRIMARY KEY AUTO_INCREMENT,\000d\000apermanente boolean,\000d\000adni int,\000d\000adireccion VARCHAR (255),\000d\000afuncion VARCHAR(255),\000d\000afechaVencimientoContrato DATE[*]"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE empleados (
+legajo int PRIMARY KEY AUTO_INCREMENT,
+permanente boolean,
+dni int,
+direccion VARCHAR (255),
+funcion VARCHAR(255),
+fechaVencimientoContrato DATE [42001-224]
+2024-06-17 22:18:02.873513-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*]realiza VARCHAR(255)"; se esperaba "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"
+Syntax error in SQL statement "[*]realiza VARCHAR(255)"; expected "ROLLBACK, REVOKE, RUNSCRIPT, RELEASE, REFRESH"; SQL statement:
+realiza VARCHAR(255) [42001-224]
+2024-06-17 22:18:02.875513-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "[*])"
+Syntax error in SQL statement "[*])"; SQL statement:
+) [42000-224]
+2024-06-17 22:18:40.715934-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "CREATE TABLE empleados (\000d\000alegajo int PRIMARY KEY AUTO_INCREMENT,\000d\000apermanente boolean,\000d\000adni int,\000d\000adireccion VARCHAR (255),\000d\000afuncion VARCHAR(255),\000d\000afechaVencimientoContrato DATE,\000d\000arealiza VARCHAR(255),\000d\000a[*])"; se esperaba "identifier"
+Syntax error in SQL statement "CREATE TABLE empleados (\000d\000alegajo int PRIMARY KEY AUTO_INCREMENT,\000d\000apermanente boolean,\000d\000adni int,\000d\000adireccion VARCHAR (255),\000d\000afuncion VARCHAR(255),\000d\000afechaVencimientoContrato DATE,\000d\000arealiza VARCHAR(255),\000d\000a[*])"; expected "identifier"; SQL statement:
+CREATE TABLE empleados (
+legajo int PRIMARY KEY AUTO_INCREMENT,
+permanente boolean,
+dni int,
+direccion VARCHAR (255),
+funcion VARCHAR(255),
+fechaVencimientoContrato DATE,
+realiza VARCHAR(255),
+) [42001-224]
+2024-06-17 22:34:29.916873-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table sueldo [*]new name sueldos"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "alter table sueldo [*]new name sueldos"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table sueldo new name sueldos [42001-224]
+2024-06-17 22:34:39.961682-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table sueldo rename [*]sueldos"; se esperaba "COLUMN, CONSTRAINT, TO"
+Syntax error in SQL statement "alter table sueldo rename [*]sueldos"; expected "COLUMN, CONSTRAINT, TO"; SQL statement:
+alter table sueldo rename sueldos [42001-224]
+2024-06-17 22:34:51.954841-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table sueldo [*]renam sueldos"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "alter table sueldo [*]renam sueldos"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table sueldo renam sueldos [42001-224]
+2024-06-17 22:35:03.883812-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table sueldo set [*]name sueldos"; se esperaba "REFERENTIAL_INTEGRITY"
+Syntax error in SQL statement "alter table sueldo set [*]name sueldos"; expected "REFERENTIAL_INTEGRITY"; SQL statement:
+alter table sueldo set name sueldos [42001-224]
+2024-06-17 22:42:56.768356-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TELEFONO" no encontrada
+Column "TELEFONO" not found; SQL statement:
+INSERT INTO empleados (permanente, dni, nombre, direccion, funcion, telefono, fechaVencimientoContrato) VALUES
+(true, 36345678, 'Juan Pérez', 'Calle Falsa 123', 'Gerente', 5551234,null),
+(false, 23456789, 'María Gómez', 'Av. Siempre Viva 742', 'Analista', 5555678, '2024-06-30'),
+(true, 34567890, 'Carlos López', 'Calle Principal 456', 'Desarrollador', 5557890, null),
+(false, 45678901, 'Laura Fernández', 'Calle Segunda 789', 'Soporte Técnico', 5553456, '2025-12-31'),
+(true, 22789012, 'Ana Martínez', 'Av. Central 101', 'Recursos Humanos', 5556543, null),
+(false, 26890123, 'Luis Sánchez', 'Calle Tercera 202', 'Ventas', 5559876, '2024-11-30'),
+(true, 35901234, 'Patricia Ruiz', 'Av. Libertad 303', 'Contabilidad', 5553210, null),
+(false, 40012345, 'Roberto Gómez', 'Calle Cuarta 404', 'Marketing', 5554321, '2025-02-28'),
+(true, 90123456, 'Daniela Torres', 'Av. Sur 505', 'Logística', 5558765, null),
+(false, 29340987, 'Javier Castro', 'Calle Quinta 606', 'Compras', 5556547, '2024-09-30') [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-17 22:43:28.590822-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table empleados add column telefono[*]"; se esperaba "data type"
+Syntax error in SQL statement "alter table empleados add column telefono[*]"; expected "data type"; SQL statement:
+alter table empleados add column telefono [42001-224]
+2024-06-17 22:43:28.591823-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Columna "TELEFONO" no encontrada
+Column "TELEFONO" not found; SQL statement:
+INSERT INTO empleados (permanente, dni, nombre, direccion, funcion, telefono, fechaVencimientoContrato) VALUES
+(true, 36345678, 'Juan Pérez', 'Calle Falsa 123', 'Gerente', 5551234,null),
+(false, 23456789, 'María Gómez', 'Av. Siempre Viva 742', 'Analista', 5555678, '2024-06-30'),
+(true, 34567890, 'Carlos López', 'Calle Principal 456', 'Desarrollador', 5557890, null),
+(false, 45678901, 'Laura Fernández', 'Calle Segunda 789', 'Soporte Técnico', 5553456, '2025-12-31'),
+(true, 22789012, 'Ana Martínez', 'Av. Central 101', 'Recursos Humanos', 5556543, null),
+(false, 26890123, 'Luis Sánchez', 'Calle Tercera 202', 'Ventas', 5559876, '2024-11-30'),
+(true, 35901234, 'Patricia Ruiz', 'Av. Libertad 303', 'Contabilidad', 5553210, null),
+(false, 40012345, 'Roberto Gómez', 'Calle Cuarta 404', 'Marketing', 5554321, '2025-02-28'),
+(true, 90123456, 'Daniela Torres', 'Av. Sur 505', 'Logística', 5558765, null),
+(false, 29340987, 'Javier Castro', 'Calle Quinta 606', 'Compras', 5556547, '2024-09-30') [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-17 22:54:53.160944-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'0.10' (CURSOS: ""PUNTAJE"" INTEGER)"
+Data conversion error converting "'0.10' (CURSOS: ""PUNTAJE"" INTEGER)"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22018-224]
+2024-06-17 22:54:53.160944-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'0.10' (CURSOS: ""PUNTAJE"" INTEGER)"
+Data conversion error converting "'0.10' (CURSOS: ""PUNTAJE"" INTEGER)"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22018-224]
+2024-06-17 22:55:10.346646-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table cursos [*]dd"; se esperaba "., ADD, SET, RENAME, DROP, ALTER"
+Syntax error in SQL statement "alter table cursos [*]dd"; expected "., ADD, SET, RENAME, DROP, ALTER"; SQL statement:
+alter table cursos dd [42001-224]
+2024-06-17 22:56:08.244222-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "PUNTAJE DECIMAL(1, 2)": "'0.10' (4)"
+Value too long for column "PUNTAJE DECIMAL(1, 2)": "'0.10' (4)"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22001-224]
+2024-06-17 22:56:08.245222-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "PUNTAJE DECIMAL(1, 2)": "'0.10' (4)"
+Value too long for column "PUNTAJE DECIMAL(1, 2)": "'0.10' (4)"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22001-224]
+2024-06-17 22:56:35.873676-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'0,1' (CURSOS: ""PUNTAJE"" DECIMAL(1, 2))"
+Data conversion error converting "'0,1' (CURSOS: ""PUNTAJE"" DECIMAL(1, 2))"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22018-224]
+2024-06-17 22:56:35.873676-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "'0,1' (CURSOS: ""PUNTAJE"" DECIMAL(1, 2))"
+Data conversion error converting "'0,1' (CURSOS: ""PUNTAJE"" DECIMAL(1, 2))"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22018-224]
+2024-06-17 22:56:43.933509-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "PUNTAJE DECIMAL(1, 2)": "'0.1' (3)"
+Value too long for column "PUNTAJE DECIMAL(1, 2)": "'0.1' (3)"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22001-224]
+2024-06-17 22:56:43.933509-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Valor demasiado largo para la columna "PUNTAJE DECIMAL(1, 2)": "'0.1' (3)"
+Value too long for column "PUNTAJE DECIMAL(1, 2)": "'0.1' (3)"; SQL statement:
+UPDATE "PUBLIC"."CURSOS" SET "CODIGO"=? ,"NOMBRE"=? ,"CARGA_HORARIA"=? ,"VIGENCIA_MESES"=? ,"CURSOS_PREVIOS"=? ,"PUNTAJE"=?  WHERE "CODIGO"=? [22001-224]
+2024-06-17 23:01:51.345360-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "alter table empleados add column fecha_ingreso[*]"; se esperaba "data type"
+Syntax error in SQL statement "alter table empleados add column fecha_ingreso[*]"; expected "data type"; SQL statement:
+alter table empleados add column fecha_ingreso [42001-224]
+2024-06-17 23:18:23.461194-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "update [*]table empleados set fecha_ingreso '2024-01-01'"; se esperaba "identifier"
+Syntax error in SQL statement "update [*]table empleados set fecha_ingreso '2024-01-01'"; expected "identifier"; SQL statement:
+update table empleados set fecha_ingreso '2024-01-01' [42001-224]
+2024-06-17 23:18:46.745192-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "update empleados set fecha_ingreso [*]'2024-01-01'"; se esperaba "., [, ="
+Syntax error in SQL statement "update empleados set fecha_ingreso [*]'2024-01-01'"; expected "., [, ="; SQL statement:
+update empleados set fecha_ingreso '2024-01-01' [42001-224]
+2024-06-17 23:19:08.732202-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "update empleados set fecha_ingreso [*]2024-01-01"; se esperaba "., [, ="
+Syntax error in SQL statement "update empleados set fecha_ingreso [*]2024-01-01"; expected "., [, ="; SQL statement:
+update empleados set fecha_ingreso 2024-01-01 [42001-224]
+2024-06-17 23:19:26.415835-03:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "2022 (EMPLEADOS: ""FECHA_INGRESO"" DATE)"
+Data conversion error converting "2022 (EMPLEADOS: ""FECHA_INGRESO"" DATE)"; SQL statement:
+update empleados set fecha_ingreso = 2024-01-01 [22018-224]
+2024-06-17 23:48:26.581760-03:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "2013 (INSCRIPCIONES: ""FECHA_INICIO"" DATE)"
+Data conversion error converting "2013 (INSCRIPCIONES: ""FECHA_INICIO"" DATE)"; SQL statement:
+insert into inscripciones (LEGAJO_EMPLEADO,CODIGO_MATERIA,FECHA_INICIO,FECHA_FIN,APROBADO) VALUES
+(1 ,7 ,2024-01-10 ,2024-02-29 ,true ),
+(1 ,8 ,2024-04-01 ,2024-05-17 , true ),
+(3 ,4 ,2024-05-18 ,2024-06-02 , true ),
+(3 ,3 ,2024-06-10 ,null ,false ),
+(5 ,7 ,2024-02-10 ,null ,false ),
+(7 ,3 ,2024-01-20 ,2024-02-20 ,true ),
+(7 ,1 ,2024-02-21 ,2024-03-26,true ),
+(7 ,2 ,2024-05-10 ,null ,false ),
+(13 ,7 ,2024-04-10 ,2024-05-10 ,true ),
+(13 ,8 ,2024-06-01 ,null ,false ),
+(15 ,3 ,2024-03-10 ,null ,false ),
+(19 ,3 ,2024-01-17 ,2024-02-09 ,true ),
+(19 ,4 ,2024-01-17 ,2024-02-10 ,true ),
+(19 ,5 ,2024-02-20 ,2024-04-07 ,true ),
+(19 ,6 ,2024-04-20 ,null ,false ),
+(19 ,1 ,2024-03-10 ,null ,false ) [22018-224]
+2024-06-17 23:52:46.499110-03:00 jdbc[5]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "insert into inscripciones (LEGAJO_EMPLEADO,CODIGO_MATERIA,FECHA_INICIO,FECHA_FIN,APROBADO) VALUES\000d\000a(1 ,7 ,'2024-01-10' ,'2024-02-29' ,true ),\000d\000a(19 ,3 ,'2024-01-17' ,'2024-02-09' ,true ),\000d\000a(19 ,4 ,'2024-01-17' ,'2024-02-10' ,true ),\000d\000a(7 ,3 ,'2024-01-20' ,'2024-02-20' ,true ),\000d\000a(5 ,7 ,'2024-02-10' ,null ,false ),\000d\000a(19 ,5 ,'2024-02-20' ,'2024-04-07' ,true ),\000d\000a(7 ,1 ,'2024-02-21' ,'2024-03-26',true ),\000d\000a(15 ,3 ,'2024-03-10' ,null ,false ),\000d\000a(19 ,1 ,'2024-03-10' ,null ,false )\000d\000a[*](1 ,8 ,'2024-04-01' ,'2024-05-17' , true ),\000d\000a(13 ,7 ,'2024-04-10' ,'2024-05-10' ,true ),\000d\000a(19 ,6 ,'2024-04-20' ,null ,false ),\000d\000a(7 ,2 ,'2024-05-10' ,null ,false ),\000d\000a(3 ,4 ,'2024-05-18' ,'2024-06-02' , true ),\000d\000a(13 ,8 ,'2024-06-01' ,null ,false ),\000d\000a(3 ,3 ,'2024-06-10' ,null ,false ),"
+Syntax error in SQL statement "insert into inscripciones (LEGAJO_EMPLEADO,CODIGO_MATERIA,FECHA_INICIO,FECHA_FIN,APROBADO) VALUES\000d\000a(1 ,7 ,'2024-01-10' ,'2024-02-29' ,true ),\000d\000a(19 ,3 ,'2024-01-17' ,'2024-02-09' ,true ),\000d\000a(19 ,4 ,'2024-01-17' ,'2024-02-10' ,true ),\000d\000a(7 ,3 ,'2024-01-20' ,'2024-02-20' ,true ),\000d\000a(5 ,7 ,'2024-02-10' ,null ,false ),\000d\000a(19 ,5 ,'2024-02-20' ,'2024-04-07' ,true ),\000d\000a(7 ,1 ,'2024-02-21' ,'2024-03-26',true ),\000d\000a(15 ,3 ,'2024-03-10' ,null ,false ),\000d\000a(19 ,1 ,'2024-03-10' ,null ,false )\000d\000a[*](1 ,8 ,'2024-04-01' ,'2024-05-17' , true ),\000d\000a(13 ,7 ,'2024-04-10' ,'2024-05-10' ,true ),\000d\000a(19 ,6 ,'2024-04-20' ,null ,false ),\000d\000a(7 ,2 ,'2024-05-10' ,null ,false ),\000d\000a(3 ,4 ,'2024-05-18' ,'2024-06-02' , true ),\000d\000a(13 ,8 ,'2024-06-01' ,null ,false ),\000d\000a(3 ,3 ,'2024-06-10' ,null ,false ),"; SQL statement:
+insert into inscripciones (LEGAJO_EMPLEADO,CODIGO_MATERIA,FECHA_INICIO,FECHA_FIN,APROBADO) VALUES
+(1 ,7 ,'2024-01-10' ,'2024-02-29' ,true ),
+(19 ,3 ,'2024-01-17' ,'2024-02-09' ,true ),
+(19 ,4 ,'2024-01-17' ,'2024-02-10' ,true ),
+(7 ,3 ,'2024-01-20' ,'2024-02-20' ,true ),
+(5 ,7 ,'2024-02-10' ,null ,false ),
+(19 ,5 ,'2024-02-20' ,'2024-04-07' ,true ),
+(7 ,1 ,'2024-02-21' ,'2024-03-26',true ),
+(15 ,3 ,'2024-03-10' ,null ,false ),
+(19 ,1 ,'2024-03-10' ,null ,false )
+(1 ,8 ,'2024-04-01' ,'2024-05-17' , true ),
+(13 ,7 ,'2024-04-10' ,'2024-05-10' ,true ),
+(19 ,6 ,'2024-04-20' ,null ,false ),
+(7 ,2 ,'2024-05-10' ,null ,false ),
+(3 ,4 ,'2024-05-18' ,'2024-06-02' , true ),
+(13 ,8 ,'2024-06-01' ,null ,false ),
+(3 ,3 ,'2024-06-10' ,null ,false ), [42000-224]
+2024-06-18 00:15:52.804869-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:11)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:7)
+	at PRuebas.pruebaMain.main(pruebaMain.java:7)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 20 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 14 more
+2024-06-18 00:19:43.858065-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Imposible interpretar la constante "DATE" "2024-04"
+Cannot parse "DATE" constant "2024-04"; SQL statement:
+select * from inscripciones where fecha_inicio > '2024-04' [22007-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:518)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.value.ValueDate.parse(ValueDate.java:53)
+	at org.h2.value.Value.convertToDate(Value.java:1875)
+	at org.h2.value.Value.convertTo(Value.java:1168)
+	at org.h2.value.Value.convertTo(Value.java:1047)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:197)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.IllegalArgumentException: 2024-04
+	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:178)
+	at org.h2.value.ValueDate.parse(ValueDate.java:51)
+	... 20 more
