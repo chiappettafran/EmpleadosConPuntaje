@@ -1,6 +1,11 @@
 package PRuebas;
 
 import ConexionBD.Conexion;
+import Vista.GestionDeCursos.VistaAgregarCurso;
+import Vista.GestionDeCursos.VistaConsultarConcursantes;
+import Vista.GestionDeCursos.VistaGestionDeCursos;
+import Vista.GestionDeCursos.VistaModificarEliminarCurso;
+import Vista.VistaPrincipal;
 
 import java.sql.SQLException;
 
@@ -14,4 +19,7 @@ public class pruebaMain {
         //su sueldo base
         //si empezo algun curso ese mes
         //si finalizo algun curso ese mes
+    public static void main(String[] args) {
+        new VistaModificarEliminarCurso();
+    }
 }
