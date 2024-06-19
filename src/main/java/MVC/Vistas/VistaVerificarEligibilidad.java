@@ -4,14 +4,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class VistaVerificarElijibilidad extends JFrame {
+public class VistaVerificarEligibilidad extends JFrame {
 
     private JComboBox<String> seleccionEmpleadoCombobox;
     private JComboBox<String> cursosComboBox;
     private JButton consultarButton;
 
 
-    public VistaVerificarElijibilidad() {
+    public VistaVerificarEligibilidad() {
         super("Verificar Elijibilidad");
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

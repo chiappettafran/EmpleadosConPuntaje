@@ -1,13 +1,6 @@
 package PRuebas;
 
-import ConexionBD.Conexion;
-import Vista.GestionDeCursos.VistaAgregarCurso;
-import Vista.GestionDeCursos.VistaConsultarConcursantes;
-import Vista.GestionDeCursos.VistaGestionDeCursos;
-import Vista.GestionDeCursos.VistaModificarEliminarCurso;
-import Vista.VistaPrincipal;
-
-import java.sql.SQLException;
+import MVC.Vistas.VistaVerificarEligibilidad;
 
 public class pruebaMain {
     //vamos a crear los bonos de sueldos
@@ -20,6 +13,6 @@ public class pruebaMain {
         //si empezo algun curso ese mes
         //si finalizo algun curso ese mes
     public static void main(String[] args) {
-        new VistaGestionDeCursos();
+        new VistaVerificarEligibilidad();
     }
 }

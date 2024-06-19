@@ -29,7 +29,7 @@ public class VistaPrincipal extends JFrame{
         agregarListenerVerfificarElegibilidad(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new VistaVerificarElijibilidad();
+                new VistaVerificarEligibilidad();
             }
         });
         agregarListenerTablaPuntajes(new ActionListener() {
