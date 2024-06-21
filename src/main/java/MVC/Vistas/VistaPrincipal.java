@@ -7,50 +7,65 @@ import java.awt.event.ActionListener;
 
 public class VistaPrincipal extends JFrame{
 
-    private JButton verificarElegibilidadButton;
-    private JButton tablaPuntajesButton;
-    private JButton consultarSueldosButton;
+    public JButton agregarEmpleadosButton;
+    public JButton verificarElegibilidadButton;
+    public JButton tablaPuntajesButton;
+    public JButton consultarSueldosButton;
+    public JButton liquidarSueldosButton;
+
+    private final Font fuenteBotones = new Font(Font.SANS_SERIF, Font.BOLD, 15);
 
     public VistaPrincipal(){
         super("Gestion de Empleados y Cursos :3");
-
-        verificarElegibilidadButton = new JButton();
-        tablaPuntajesButton = new JButton();
-        consultarSueldosButton = new JButton();
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800,600);
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(3, 1));
-        panel.add(verificarElegibilidadButton);
-        panel.add(tablaPuntajesButton);
-        panel.add(consultarSueldosButton);
-
-        add(panel);
-        setVisible(true);
-
-        agregarListenerVerfificarElegibilidad(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new VistaVerificarEligibilidad();
-            }
-        });
-        agregarListenerTablaPuntajes(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new VistaOrdenarTabladeEmpleados();
-            }
-        });
+        crearVentana();
     }
 
-    public void agregarListenerVerfificarElegibilidad(ActionListener listener){
-        verificarElegibilidadButton.addActionListener(listener);
+    private void crearVentana() {
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel panelVentana = new JPanel(new GridLayout(2, 1));
+
+        panelVentana.add(panelSuperiorBotones());
+        panelVentana.add(panelInferiorBotones());
+
+        this.getContentPane().add(panelVentana);
+        this.pack();
+        this.setLocationRelativeTo(null);
     }
-    public void agregarListenerTablaPuntajes(ActionListener listener){
-        tablaPuntajesButton.addActionListener(listener);
+
+    private JPanel panelSuperiorBotones() {
+        JPanel panelSuperior = new JPanel(new GridLayout(1,3,30,5));
+        panelSuperior.setBorder(BorderFactory.createEmptyBorder(40,40,15,40));
+
+        agregarEmpleadosButton = new JButton("Agregar Empleado");
+        agregarEmpleadosButton.setFont(fuenteBotones);
+        tablaPuntajesButton = new JButton("Maximos Puntajes");
+        tablaPuntajesButton.setFont(fuenteBotones);
+        verificarElegibilidadButton = new JButton("Verificar Eligibilidad");
+        verificarElegibilidadButton.setFont(fuenteBotones);
+
+        panelSuperior.add(agregarEmpleadosButton);
+        panelSuperior.add(tablaPuntajesButton);
+        panelSuperior.add(verificarElegibilidadButton);
+
+        return panelSuperior;
     }
-    public void agregarListenerConsultarSueldos(ActionListener listener){
-        consultarSueldosButton.addActionListener(listener);
+
+    private JPanel panelInferiorBotones() {
+        JPanel panelInferior = new JPanel(new GridLayout(1,2,50,5));
+        panelInferior.setBorder(BorderFactory.createEmptyBorder(15,150,40,150));
+
+        consultarSueldosButton = new JButton("Consultar Bonos");
+        consultarSueldosButton.setFont(fuenteBotones);
+        liquidarSueldosButton = new JButton("Liquidar Sueldos");
+        liquidarSueldosButton.setFont(fuenteBotones);
+
+        panelInferior.add(consultarSueldosButton);
+        panelInferior.add(liquidarSueldosButton);
+
+        return panelInferior;
+    }
+
+    public static void main(String[] args) {
+        new VistaPrincipal().setVisible(true);
     }
 }
