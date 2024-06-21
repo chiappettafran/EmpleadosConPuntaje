@@ -14,6 +14,10 @@ public class VistaPrincipal extends JFrame{
     public VistaPrincipal(){
         super("Gestion de Empleados y Cursos :3");
 
+        verificarElegibilidadButton = new JButton();
+        tablaPuntajesButton = new JButton();
+        consultarSueldosButton = new JButton();
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800,600);
 

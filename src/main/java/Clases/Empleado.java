@@ -84,19 +84,4 @@ public class Empleado {
     public void setSueldoBase(double sueldoBase) {
         this.sueldoBase = sueldoBase;
     }
-
-
-
-    public boolean puedeRealizar(Curso curso) {
-        return false;
-    }
-
-    public int[] maximoPuntaje(){
-        return null;
-    }
-
-    public double importeBruto(Empleado empleado) {
-        //aca es donde calcula los incentivos
-        return 0D;
-    }
 }

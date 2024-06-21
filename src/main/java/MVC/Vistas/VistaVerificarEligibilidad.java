@@ -12,7 +12,7 @@ public class VistaVerificarEligibilidad extends JFrame {
 
 
     public VistaVerificarEligibilidad() {
-        super("Verificar Elijibilidad");
+        super("Verificar Eligibilidad");
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(800,600);

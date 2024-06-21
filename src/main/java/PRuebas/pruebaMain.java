@@ -1,5 +1,6 @@
 package PRuebas;
 
+import MVC.Vistas.VistaPrincipal;
 import MVC.Vistas.VistaVerificarEligibilidad;
 
 public class pruebaMain {
@@ -13,6 +14,6 @@ public class pruebaMain {
         //si empezo algun curso ese mes
         //si finalizo algun curso ese mes
     public static void main(String[] args) {
-        new VistaVerificarEligibilidad();
+        new VistaPrincipal();
     }
 }

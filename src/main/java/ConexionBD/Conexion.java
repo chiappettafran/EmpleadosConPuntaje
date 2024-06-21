@@ -16,7 +16,6 @@ public class Conexion {
             return null;
         }
     }
-
     public static Connection getConexion() {
         return conexion;
     }
