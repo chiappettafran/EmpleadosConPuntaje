@@ -287,3 +287,389 @@ Caused by: java.lang.IllegalArgumentException: 2024-04
 	at org.h2.util.DateTimeUtils.parseDateValue(DateTimeUtils.java:178)
 	at org.h2.value.ValueDate.parse(ValueDate.java:51)
 	... 20 more
+2024-06-21 11:59:33.406568-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM INSCRIPCIONES where fecha [*]inicio > '2024-01-01' and fecha inicio < '2024-02-01'"
+Syntax error in SQL statement "SELECT * FROM INSCRIPCIONES where fecha [*]inicio > '2024-01-01' and fecha inicio < '2024-02-01'"; SQL statement:
+SELECT * FROM INSCRIPCIONES where fecha inicio > '2024-01-01' and fecha inicio < '2024-02-01' [42000-224]
+2024-06-21 11:59:45.728298-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM INSCRIPCIONES where fecha [*]inicio > '2024-01-01' and fecha_inicio < '2024-02-01'"
+Syntax error in SQL statement "SELECT * FROM INSCRIPCIONES where fecha [*]inicio > '2024-01-01' and fecha_inicio < '2024-02-01'"; SQL statement:
+SELECT * FROM INSCRIPCIONES where fecha inicio > '2024-01-01' and fecha_inicio < '2024-02-01' [42000-224]
+2024-06-21 11:59:46.318431-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM INSCRIPCIONES where fecha [*]inicio > '2024-01-01' and fecha_inicio < '2024-02-01'"
+Syntax error in SQL statement "SELECT * FROM INSCRIPCIONES where fecha [*]inicio > '2024-01-01' and fecha_inicio < '2024-02-01'"; SQL statement:
+SELECT * FROM INSCRIPCIONES where fecha inicio > '2024-01-01' and fecha_inicio < '2024-02-01' [42000-224]
+2024-06-21 12:28:24.703394-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: Tipo de dato desconocido : "LIQUIDACION"
+Unknown data type: "LIQUIDACION"; SQL statement:
+ALTER TABLE SUELDOS ADD COLUMN PERIODO LIQUIDACION [50004-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.command.Parser.readIfDataType1(Parser.java:5866)
+	at org.h2.command.Parser.readIfDataType(Parser.java:5704)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:5686)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:5565)
+	at org.h2.command.Parser.parseTableColumnDefinition(Parser.java:8999)
+	at org.h2.command.Parser.parseAlterTableAddColumn(Parser.java:8669)
+	at org.h2.command.Parser.parseAlterTable(Parser.java:8149)
+	at org.h2.command.Parser.parseAlter(Parser.java:7211)
+	at org.h2.command.Parser.parsePrepared(Parser.java:650)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1109)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:1096)
+	at org.h2.server.web.WebThread.process(WebThread.java:190)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2024-06-21 12:28:29.134786-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "ALTER TABLE SUELDOS ADD COLUMN PERIODO_LIQUIDACION[*]"; se esperaba "data type"
+Syntax error in SQL statement "ALTER TABLE SUELDOS ADD COLUMN PERIODO_LIQUIDACION[*]"; expected "data type"; SQL statement:
+ALTER TABLE SUELDOS ADD COLUMN PERIODO_LIQUIDACION [42001-224]
+2024-06-21 12:46:48.756275-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No hay datos disponibles.
+No data is available [2000-224]
+2024-06-21 13:20:16.287862-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Inscripcion.cursosIniciadosEnPeriodo(Inscripcion.java:22)
+	at PRuebas.Main.main(Main.java:16)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2024-06-21 13:20:25.798763-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Values of types "DATE" and "INTEGER" are not comparable; SQL statement:
+SELECT * FROM inscripciones WHERE legajo_empleado =13 AND fecha_inicio >= 2024-06-1 AND fecha_inicio < 2024-06-1 [90110-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:644)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.value.TypeInfo.checkComparable(TypeInfo.java:766)
+	at org.h2.expression.condition.Comparison.optimize(Comparison.java:167)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:137)
+	at org.h2.expression.condition.ConditionAndOr.optimize(ConditionAndOr.java:136)
+	at org.h2.expression.Expression.optimizeCondition(Expression.java:148)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1177)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeQuery(JdbcStatement.java:94)
+	at Clases.Inscripcion.cursosIniciadosEnPeriodo(Inscripcion.java:22)
+	at PRuebas.Main.main(Main.java:16)
+2024-06-21 14:09:59.822032-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "3,4"
+Data conversion error converting "3,4" [22018-224]
+2024-06-21 14:11:05.403549-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "3,4"
+Data conversion error converting "3,4" [22018-224]
+2024-06-21 14:11:29.792646-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Conversión de datos fallida, convirtiendo "3,4"
+Data conversion error converting "3,4" [22018-224]
+2024-06-21 14:28:43.415652-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: No hay datos disponibles.
+No data is available [2000-224]
+2024-06-21 15:09:49.185866-03:00 database: wrong user or password; user: "OBJETOSSA"
+org.h2.message.DbException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-224]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1039)
+	at org.h2.server.web.WebApp.process(WebApp.java:227)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.WebThread.process(WebThread.java:154)
+	at org.h2.server.web.WebThread.run(WebThread.java:103)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
+2024-06-21 15:10:26.331051-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "delete [*]* from sueldos"; se esperaba "identifier"
+Syntax error in SQL statement "delete [*]* from sueldos"; expected "identifier"; SQL statement:
+delete * from sueldos [42001-224]
+2024-06-21 15:11:22.566710-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Empleado.listaLegajosActivos(Empleado.java:25)
+	at Clases.Sueldo.liquidarSueldos(Sueldo.java:22)
+	at PRuebas.Main.main(Main.java:17)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2024-06-21 15:20:16.309657-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Empleado.listaLegajosActivos(Empleado.java:25)
+	at Clases.Sueldo.liquidarSueldos(Sueldo.java:22)
+	at PRuebas.Main.main(Main.java:17)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2024-06-21 15:24:23.838420-03:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLNonTransientConnectionException: La base de datos esta abierta en modo EXCLUSIVO; no puede abrir conexiones adicionales
+The database is open in exclusive mode; can not open additional connections [90135-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.SessionLocal.checkSuspended(SessionLocal.java:1254)
+	at org.h2.engine.SessionLocal.transitionToState(SessionLocal.java:1246)
+	at org.h2.engine.SessionLocal.setCurrentCommand(SessionLocal.java:1224)
+	at org.h2.engine.SessionLocal.endStatement(SessionLocal.java:1707)
+	at org.h2.command.Command.executeUpdate(Command.java:295)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at Clases.Sueldo.insertarBono(Sueldo.java:36)
+	at Clases.Sueldo.liquidarSueldos(Sueldo.java:30)
+	at PRuebas.Main.main(Main.java:17)
+2024-06-21 15:31:52.743967-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Curso.extraerCurso(Curso.java:20)
+	at PRuebas.Main.main(Main.java:17)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 21 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 15 more
+2024-06-21 15:47:53.983052-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Empleado.listaLegajosActivos(Empleado.java:25)
+	at Clases.Sueldo.liquidarSueldos(Sueldo.java:24)
+	at PRuebas.Main.main(Main.java:17)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2024-06-21 16:04:36.100068-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Sueldo.periodoYaLiquidado(Sueldo.java:86)
+	at Clases.Sueldo.liquidarSueldos(Sueldo.java:23)
+	at PRuebas.Main.main(Main.java:17)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
+2024-06-21 16:06:34.200679-03:00 database: flush
+org.h2.message.DbException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.get(DbException.java:212)
+	at org.h2.message.DbException.convert(DbException.java:407)
+	at org.h2.mvstore.db.Store.lambda$new$0(Store.java:122)
+	at org.h2.mvstore.MVStore.handleException(MVStore.java:1546)
+	at org.h2.mvstore.MVStore.panic(MVStore.java:371)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:291)
+	at org.h2.mvstore.MVStore$Builder.open(MVStore.java:2035)
+	at org.h2.mvstore.db.Store.<init>(Store.java:133)
+	at org.h2.engine.Database.<init>(Database.java:326)
+	at org.h2.engine.Engine.openSession(Engine.java:92)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:343)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:125)
+	at org.h2.Driver.connect(Driver.java:59)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:683)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:230)
+	at ConexionBD.Conexion.setConexion(Conexion.java:12)
+	at ConexionBD.Conexion.<clinit>(Conexion.java:8)
+	at Clases.Sueldo.periodoYaLiquidado(Sueldo.java:86)
+	at Clases.Sueldo.liquidarSueldos(Sueldo.java:23)
+	at PRuebas.Main.main(Main.java:17)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: Error General : "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]"
+General error: "org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]" [50000-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 22 more
+Caused by: org.h2.mvstore.MVStoreException: The file is locked: D:/Documentos/UTN/Tecnicatura en Programación/2° Semestre/Programación II/Global Programacion/EmpleadosConPuntaje/src/main/java/BaseDeDatos/BaseObjetosSA.mv.db [2.2.224/7]
+	at org.h2.mvstore.DataUtils.newMVStoreException(DataUtils.java:996)
+	at org.h2.mvstore.SingleFileStore.lockFileChannel(SingleFileStore.java:143)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:117)
+	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
+	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
+	... 16 more
