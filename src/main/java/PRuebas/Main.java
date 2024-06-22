@@ -7,15 +7,14 @@ import Clases.Sueldo;
 import MVC.Controladores.ControladorVistaPrincipal;
 import MVC.Vistas.VistaPrincipal;
 
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
 import java.util.Arrays;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
-        new Sueldo().liquidarSueldos();
+        new ControladorVistaPrincipal().iniciar();
 
-        //System.out.println(Curso.extraerCurso(6).getPuntaje());
+
     }
 }

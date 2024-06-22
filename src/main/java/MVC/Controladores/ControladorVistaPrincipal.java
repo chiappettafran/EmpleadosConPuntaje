@@ -1,5 +1,6 @@
 package MVC.Controladores;
 
+import MVC.Modelo.Modelo;
 import MVC.Vistas.VistaPrincipal;
 
 import javax.swing.*;
@@ -8,9 +9,11 @@ import java.awt.event.ActionListener;
 
 public class ControladorVistaPrincipal {
     private VistaPrincipal vista;
+    private Modelo modelo;
 
-    public ControladorVistaPrincipal(VistaPrincipal vista) {
+    public ControladorVistaPrincipal() {
         this.vista = new VistaPrincipal();
+        this.modelo = new Modelo();
     }
 
     public void iniciar() {
@@ -22,10 +25,34 @@ public class ControladorVistaPrincipal {
                 JOptionPane.showMessageDialog(null, "holaaaa");
             }
         });
-        /*vista.tablaPuntajesButton.addActionListener();
-        vista.verificarElegibilidadButton.addActionListener();
-        vista.consultarSueldosButton.addActionListener();
-        vista.liquidarSueldosButton.addActionListener();*/
+
+        vista.tablaPuntajesButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        vista.verificarElegibilidadButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        vista.consultarSueldosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        vista.liquidarSueldosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                modelo.liquidarSueldos();
+            }
+        });
     }
 
 

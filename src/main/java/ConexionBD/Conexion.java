@@ -1,5 +1,6 @@
 package ConexionBD;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Date;
@@ -13,8 +14,17 @@ public class Conexion {
             System.out.println("Conexión exitosa!");
             return connection;
         } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return null;
+            int seleccion = JOptionPane.showConfirmDialog(null,"Se produjo un error al conectar con la base de datos. Cierre la consola de administración. Reintentar?", "Error de conexion", JOptionPane.OK_CANCEL_OPTION);
+
+            switch (seleccion) {
+                case 0:
+                    return setConexion();
+                case 2:
+                    System.exit(0);
+                    return null;
+                default:
+                    return null;
+            }
         }
     }
     public static Connection getConexion() {

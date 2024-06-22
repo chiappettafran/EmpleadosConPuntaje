@@ -19,7 +19,7 @@ public class Sueldo {
 
 
     public void liquidarSueldos () {
-        Date fechaLiquidacion = new Date(2024-1900,5,1);
+        Date fechaLiquidacion = new Date(2024-1900, 2, 1);
         if (periodoYaLiquidado(fechaLiquidacion)) {
             JOptionPane.showMessageDialog(null, "Este periodo ya fue liquidado.");
         } else {
@@ -35,7 +35,7 @@ public class Sueldo {
                 sueldo.importeBruto = Empleado.extraerEmpleado(legajoEmpleado).getSueldoBase() + sueldo.incentivoCapacitacion;
                 insertarBono(sueldo);
             }
-            JOptionPane.showMessageDialog(null, "Sueldos correspondientes al periodo "+periodoLiquidacion(fechaLiquidacion)+" correctamente liquidados.");
+            JOptionPane.showMessageDialog(null, "Sueldos correspondientes al periodo "+periodoLiquidacion(fechaLiquidacion)+" liquidados con exito.");
         }
     }
 
