@@ -1,11 +1,14 @@
 package MVC.Controladores;
 
+import Clases.Sueldo;
+import ConexionBD.Conexion;
 import MVC.Modelo.Modelo;
 import MVC.Vistas.VistaPrincipal;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
 
 public class ControladorVistaPrincipal {
     private VistaPrincipal vista;
@@ -22,7 +25,7 @@ public class ControladorVistaPrincipal {
         vista.agregarEmpleadosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "holaaaa");
+                new ControladorAgregarEmpleados();
             }
         });
 
@@ -50,7 +53,10 @@ public class ControladorVistaPrincipal {
         vista.liquidarSueldosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                modelo.liquidarSueldos();
+                int opcion = JOptionPane.showConfirmDialog(null, "Desea liquidar los sueldos correspondientes al periodo "+ Sueldo.periodoLiquidacion(new Date())+"?", "",JOptionPane.OK_CANCEL_OPTION);
+                if (opcion == 0) {
+                    modelo.liquidarSueldos();
+                }
             }
         });
     }

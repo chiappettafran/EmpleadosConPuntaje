@@ -26,15 +26,20 @@ public class Sueldo {
         } else {
             Date fechaLiquidacionAux = (Date) fechaLiquidacion.clone();
             fechaLiquidacionAux.setMonth(fechaLiquidacionAux.getMonth()-1);
-            for (Integer legajoEmpleado : Empleado.listaLegajosActivos()) {
-                Sueldo sueldo = new Sueldo();
 
-                sueldo.legajoEmpleado = legajoEmpleado;
-                sueldo.fechaLiquidacion = fechaLiquidacion;
-                sueldo.incentivoCapacitacion = calcularIncentivo(legajoEmpleado, fechaLiquidacionAux);
-                sueldo.periodoLiquidacion = periodoLiquidacion(fechaLiquidacion);
-                sueldo.importeBruto = Empleado.extraerEmpleado(legajoEmpleado).getSueldoBase() + sueldo.incentivoCapacitacion;
-                insertarBono(sueldo);
+            Date fechaLiquidacionAux2 = (Date) fechaLiquidacion.clone();
+            fechaLiquidacionAux2.setDate(1);
+            for (Integer legajoEmpleado : Empleado.listaLegajosActivos()) {
+                if (Empleado.extraerEmpleado(legajoEmpleado).getFechaIngreso().before(fechaLiquidacionAux2)) {
+                    Sueldo sueldo = new Sueldo();
+
+                    sueldo.legajoEmpleado = legajoEmpleado;
+                    sueldo.fechaLiquidacion = fechaLiquidacion;
+                    sueldo.incentivoCapacitacion = calcularIncentivo(legajoEmpleado, fechaLiquidacionAux);
+                    sueldo.periodoLiquidacion = periodoLiquidacion(fechaLiquidacion);
+                    sueldo.importeBruto = Empleado.extraerEmpleado(legajoEmpleado).getSueldoBase() + sueldo.incentivoCapacitacion;
+                    insertarBono(sueldo);
+                }
             }
             JOptionPane.showMessageDialog(null, "Sueldos correspondientes al periodo "+periodoLiquidacion(fechaLiquidacion)+" liquidados con exito.");
         }
@@ -76,11 +81,11 @@ public class Sueldo {
         return incentivo;
     }
 
-    private String periodoLiquidacion (Date fechaLiquidacion) {
+    public static String periodoLiquidacion (Date fechaLiquidacion) {
         Date fechaLiquidacionAux = (Date) fechaLiquidacion.clone();
         fechaLiquidacionAux.setMonth(fechaLiquidacionAux.getMonth()-1);
         String fechaPeriodo = Conexion.serializarFecha(fechaLiquidacionAux);
-        return fechaPeriodo.substring(0, fechaPeriodo.length()-2);
+        return fechaPeriodo.substring(0, fechaPeriodo.length()-3);
     }
 
     private boolean periodoYaLiquidado (Date fechaLiquidacion) {

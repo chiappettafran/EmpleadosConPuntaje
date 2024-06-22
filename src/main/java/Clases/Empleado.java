@@ -14,11 +14,26 @@ public class Empleado {
     private String nombre;
     private String direccion;
     private String funcion;
-    private int telefono;
+    private long telefono;
     private Date fechaIngreso;
     private Date fechaVencimientoContrato;
     private double sueldoBase;
 
+    public Empleado() {
+    }
+
+    public Empleado(boolean permanente, int dni, String nombre, String direccion, String funcion, long telefono,
+                    Date fechaIngreso, Date fechaVencimientoContrato, double sueldoBase) {
+        this.permanente = permanente;
+        this.dni = dni;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.funcion = funcion;
+        this.telefono = telefono;
+        this.fechaIngreso = fechaIngreso;
+        this.fechaVencimientoContrato = fechaVencimientoContrato;
+        this.sueldoBase = sueldoBase;
+    }
 
     public static ArrayList<Integer> listaLegajosActivos () {
         try {
@@ -64,7 +79,7 @@ public class Empleado {
             }
 
             empleadoNuevo.nombre = empleado.getString(7);
-            empleadoNuevo.telefono = empleado.getInt(8);
+            empleadoNuevo.telefono = empleado.getLong(8);
 
             if (empleado.getString(9) != null) {
                 empleadoNuevo.fechaIngreso = Conexion.deserializarFecha(empleado.getString(9));
@@ -76,6 +91,37 @@ public class Empleado {
 
             return empleadoNuevo;
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void agregarEmpleado (Empleado empleado) {
+        try {
+            if (empleado.fechaVencimientoContrato == null) {
+                Conexion.getConexion().createStatement().execute("INSERT INTO empleados (permanente, dni, direccion, funcion, fechavencimientocontrato, nombre, telefono, fecha_ingreso, sueldo_base) VALUES  " +
+                        "(" + empleado.permanente +
+                        ", " + empleado.dni +
+                        ",'" + empleado.direccion +
+                        "', '" + empleado.funcion +
+                        "', " + null +
+                        ", '" + empleado.nombre +
+                        "', " + empleado.telefono +
+                        ", '" + Conexion.serializarFecha(empleado.fechaIngreso) +
+                        "', " + empleado.sueldoBase +")"
+                );
+            } else {
+                Conexion.getConexion().createStatement().execute("INSERT INTO empleados (permanente, dni, direccion, funcion, fechavencimientocontrato, nombre, telefono, fecha_ingreso, sueldo_base) VALUES  " +
+                        "(" + empleado.permanente +
+                        ", " + empleado.dni +
+                        ",'" + empleado.direccion +
+                        "', '" + empleado.funcion +
+                        "', '" + Conexion.serializarFecha(empleado.fechaVencimientoContrato) +
+                        "', '" + empleado.nombre +
+                        "', " + empleado.telefono +
+                        ", '" + Conexion.serializarFecha(empleado.fechaIngreso) +
+                        "', " + empleado.sueldoBase + ")"
+                );
+            }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -131,10 +177,10 @@ public class Empleado {
         this.funcion = funcion;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
