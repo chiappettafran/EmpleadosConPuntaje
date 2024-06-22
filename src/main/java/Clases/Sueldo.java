@@ -6,20 +6,21 @@ import javax.swing.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 public class Sueldo {
     private int codigo;
     private int legajoEmpleado;
     private Date fechaLiquidacion;
+    private double sueldoBase;
     private double incentivoCapacitacion;
     private String periodoLiquidacion;
     private double importeBruto;
 
 
+
     public void liquidarSueldos () {
-        Date fechaLiquidacion = new Date(2024-1900, 2, 1);
+        Date fechaLiquidacion = new Date();
         if (periodoYaLiquidado(fechaLiquidacion)) {
             JOptionPane.showMessageDialog(null, "Este periodo ya fue liquidado.");
         } else {
@@ -89,5 +90,88 @@ public class Sueldo {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public static ArrayList<String> getPeriodosDeLiquidacionLegajo(int legajo) {
+        try {
+            ResultSet periodosLiquidacionResultSet = Conexion.getConexion().createStatement().executeQuery("SELECT periodo_liquidacion FROM sueldos WHERE legajo_empleado ="+legajo);
+            ArrayList<String> periodosLiquidacion = new ArrayList<>();
+            while (periodosLiquidacionResultSet.next()) {
+                periodosLiquidacion.add(periodosLiquidacionResultSet.getString(1));
+            }
+            return periodosLiquidacion;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static Sueldo extraerBono (int legajo, String periodo) {
+        try {
+            Sueldo bonoDeSueldo = new Sueldo();
+            ResultSet bonoSueldoResultSet = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM sueldos WHERE legajo_empleado = "+legajo+" AND periodo_liquidacion = '"+periodo+"'");
+            bonoSueldoResultSet.next();
+            bonoDeSueldo.codigo = bonoSueldoResultSet.getInt(1);
+            bonoDeSueldo.legajoEmpleado = bonoSueldoResultSet.getInt(2);
+            bonoDeSueldo.fechaLiquidacion = Conexion.deserializarFecha(bonoSueldoResultSet.getString(3));
+            bonoDeSueldo.sueldoBase = bonoSueldoResultSet.getDouble(4);
+            bonoDeSueldo.incentivoCapacitacion = bonoSueldoResultSet.getDouble(5);
+            bonoDeSueldo.periodoLiquidacion = bonoSueldoResultSet.getString(6);
+            bonoDeSueldo.importeBruto = bonoSueldoResultSet.getDouble(7);
+
+            return bonoDeSueldo;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
+    }
+
+    public int getLegajoEmpleado() {
+        return legajoEmpleado;
+    }
+    public void setLegajoEmpleado(int legajoEmpleado) {
+        this.legajoEmpleado = legajoEmpleado;
+    }
+
+    public Date getFechaLiquidacion() {
+        return fechaLiquidacion;
+    }
+    public void setFechaLiquidacion(Date fechaLiquidacion) {
+        this.fechaLiquidacion = fechaLiquidacion;
+    }
+
+    public double getSueldoBase() {
+        return sueldoBase;
+    }
+    public void setSueldoBase(double sueldoBase) {
+        this.sueldoBase = sueldoBase;
+    }
+
+    public double getIncentivoCapacitacion() {
+        return incentivoCapacitacion;
+    }
+    public void setIncentivoCapacitacion(double incentivoCapacitacion) {
+        this.incentivoCapacitacion = incentivoCapacitacion;
+    }
+
+    public String getPeriodoLiquidacion() {
+        return periodoLiquidacion;
+    }
+    public void setPeriodoLiquidacion(String periodoLiquidacion) {
+        this.periodoLiquidacion = periodoLiquidacion;
+    }
+
+    public double getImporteBruto() {
+        return importeBruto;
+    }
+    public void setImporteBruto(double importeBruto) {
+        this.importeBruto = importeBruto;
     }
 }

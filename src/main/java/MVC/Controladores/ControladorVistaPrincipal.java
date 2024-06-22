@@ -43,7 +43,7 @@ public class ControladorVistaPrincipal {
         vista.consultarSueldosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new ControladorMostrarLiquidaciones();
             }
         });
 

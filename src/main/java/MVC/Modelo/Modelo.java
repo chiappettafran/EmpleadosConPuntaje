@@ -13,8 +13,8 @@ public class Modelo {
         return null;
     }
 
-    public double importeBruto() {
-        return 0D;
+    public Sueldo importeBruto(int legajo, String periodo) {
+        return Sueldo.extraerBono(legajo, periodo);
     }
 
     public void liquidarSueldos() {

@@ -15,6 +15,7 @@ public class Main {
     public static void main(String[] args) {
         new ControladorVistaPrincipal().iniciar();
 
+        //System.out.println(Sueldo.extraerBono(1, "2024-01").getIncentivoCapacitacion());
 
     }
 }
