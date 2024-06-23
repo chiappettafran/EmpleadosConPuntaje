@@ -75,12 +75,9 @@ public class VistaOrdenarTabladeEmpleados extends JFrame {
             ArrayList<Integer> cursosAprobados = inscripcion.cursosAprobados(empleado.getLegajo());
             ArrayList<Integer> cursosNoAprobados = inscripcion.cursosNoAprobados(empleado.getLegajo());
 
-            // Sumar puntajes de cursos aprobados
             for (Integer codigoCurso : cursosAprobados) {
                 puntajeDouble += Curso.extraerCurso(codigoCurso).getPuntaje() * 2;
             }
-
-            // Sumar puntajes de cursos no aprobados
             for (Integer codigoCurso : cursosNoAprobados) {
                 puntajeDouble += Curso.extraerCurso(codigoCurso).getPuntaje();
             }
