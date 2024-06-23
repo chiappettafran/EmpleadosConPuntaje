@@ -67,6 +67,23 @@ public class Inscripcion {
             throw new RuntimeException(e);
         }
     }
+    public static ArrayList<Integer> legajosCursadores() {
+        ArrayList<Integer> legajoCursadores = new ArrayList<>();
+        try {
+            ResultSet legajosConCursos = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM inscripciones");
+            while (legajosConCursos.next()) {
+                int legajo = Integer.parseInt(legajosConCursos.getString(2));
+                if (!legajoCursadores.contains(legajo)) {
+                    legajoCursadores.add(legajo);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error leyendo Inscripciones");
+            throw new RuntimeException(e);
+        }
+        return legajoCursadores;
+    }
+
     public ArrayList<Integer> cursosAprobados(Integer legajo){
         ArrayList<Integer> listadoCursosAprobados = new ArrayList<>();
         try {
@@ -86,6 +103,23 @@ public class Inscripcion {
             return null;
         }
 
+    }
+    public ArrayList<Integer> cursosNoAprobados(Integer legajo){
+        ArrayList<Integer> listadoCursosNoAprobados = new ArrayList<>();
+        try {
+            ResultSet cursosDesaprobadosBD = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM inscripciones WHERE legajo_empleado = "+ legajo);
+            cursosDesaprobadosBD.next();
+
+            if (Boolean.parseBoolean(cursosDesaprobadosBD.getString(6).toLowerCase()) == false) {
+                listadoCursosNoAprobados.add(Integer.parseInt(cursosDesaprobadosBD.getString(3)));
+            }
+        }catch (SQLException e){
+            System.out.println("Error leyendo Cursos");
+        }if(listadoCursosNoAprobados != null){
+            return listadoCursosNoAprobados;
+        }else {
+            return null;
+        }
     }
 
 

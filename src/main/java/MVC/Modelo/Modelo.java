@@ -2,14 +2,12 @@ package MVC.Modelo;
 
 import Clases.Curso;
 import Clases.Empleado;
+import Clases.Inscripcion;
 import Clases.Sueldo;
 
 import java.util.*;
 
 public class Modelo {
-
-
-
 
 
     public HashMap<Empleado, Curso> puedeRealizar(int legajo, int curso) {
@@ -20,9 +18,14 @@ public class Modelo {
         return mapPuedeRealizar;
     }
 
-    public int[] maximoPuntaje(){
-        return null;
+    public ArrayList<Empleado> maximoPuntaje() {
+        ArrayList<Empleado> empleados = new ArrayList<>();
+        for (Integer legajo : Inscripcion.legajosCursadores()) {
+            empleados.add(Empleado.extraerEmpleado(legajo));
+        }
+        return empleados;
     }
+
 
     public Sueldo importeBruto(int legajo, String periodo) {
         return Sueldo.extraerBono(legajo, periodo);

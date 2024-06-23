@@ -32,7 +32,7 @@ public class ControladorVistaPrincipal {
         vista.tablaPuntajesButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new ControladorMostrarPuntajesMaximos();
             }
         });
 
