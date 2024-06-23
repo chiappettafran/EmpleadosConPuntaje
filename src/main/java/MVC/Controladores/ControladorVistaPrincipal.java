@@ -39,7 +39,7 @@ public class ControladorVistaPrincipal {
         vista.verificarElegibilidadButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new ControladorMostrarElegibilidad();
             }
         });
 

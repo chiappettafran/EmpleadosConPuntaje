@@ -38,9 +38,24 @@ public class Curso {
             }
             return cursoNuevo;
         } catch (SQLException e) {
-            System.out.println("Error leyendo el curso");
+            System.out.println("Error leyendo el curso 1");
             throw new RuntimeException(e);
         }
+    }
+    public static ArrayList<Integer> extraerTodosCursos() {
+        ArrayList<Integer> codigoCursos = new ArrayList<>();
+        try {
+            String sql = "SELECT codigo FROM cursos;";
+            ResultSet resultSet = Conexion.getConexion().createStatement().executeQuery(sql);
+            while (resultSet.next()){
+                int codigoCurso = resultSet.getInt("codigo");
+                codigoCursos.add(codigoCurso);
+            }
+        }catch (SQLException e){
+            System.out.println("Error leyendo el curso 2");
+            throw new RuntimeException(e);
+        }
+        return codigoCursos;
     }
 
 

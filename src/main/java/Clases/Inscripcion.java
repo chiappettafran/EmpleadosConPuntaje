@@ -67,6 +67,26 @@ public class Inscripcion {
             throw new RuntimeException(e);
         }
     }
+    public ArrayList<Integer> cursosAprobados(Integer legajo){
+        ArrayList<Integer> listadoCursosAprobados = new ArrayList<>();
+        try {
+            ResultSet cursosAprobadosBD = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM inscripciones WHERE legajo_empleado = "+ legajo);
+            cursosAprobadosBD.next();
+
+            if(Boolean.parseBoolean(cursosAprobadosBD.getString(6).toLowerCase()) == true){
+                listadoCursosAprobados.add(Integer.parseInt(cursosAprobadosBD.getString(3)));
+            }
+        }catch (SQLException e){
+            System.out.println("Error leyendo Cursos");
+            throw new RuntimeException(e);
+        }
+        if(listadoCursosAprobados != null){
+            return listadoCursosAprobados;
+        }else {
+            return null;
+        }
+
+    }
 
 
 

@@ -133,8 +133,6 @@ public class Empleado {
 
 
 
-
-
     public int getLegajo() {
         return legajo;
     }
