@@ -52,7 +52,7 @@ public class Curso {
                 cursoNuevo.codigo = curso.getInt(1);
                 cursoNuevo.nombreCurso = curso.getString(2);
                 cursoNuevo.cargaHoraria = curso.getInt(3);
-                cursoNuevo.puntaje = curso.getDouble(6); // Asegúrate que esta sea la columna correcta para el puntaje
+                cursoNuevo.puntaje = curso.getDouble(6);
                 cursoNuevo.vigenciaMeses = curso.getInt(4);
 
                 if (curso.getString(5) != null) {
