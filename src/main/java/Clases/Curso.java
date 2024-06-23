@@ -42,6 +42,38 @@ public class Curso {
             throw new RuntimeException(e);
         }
     }
+    public static Curso extraerCurso1(int codigoCurso) {
+        try {
+            ResultSet curso = Conexion.getConexion().createStatement().executeQuery(
+                    "SELECT * FROM cursos WHERE codigo = " + codigoCurso
+            );
+            if (curso.next()) {
+                Curso cursoNuevo = new Curso();
+                cursoNuevo.codigo = curso.getInt(1);
+                cursoNuevo.nombreCurso = curso.getString(2);
+                cursoNuevo.cargaHoraria = curso.getInt(3);
+                cursoNuevo.puntaje = curso.getDouble(6); // Asegúrate que esta sea la columna correcta para el puntaje
+                cursoNuevo.vigenciaMeses = curso.getInt(4);
+
+                if (curso.getString(5) != null) {
+                    String[] auxCursosPrevios = curso.getString(5).split(",");
+                    cursoNuevo.cursosPrevios = new int[auxCursosPrevios.length];
+                    for (int i = 0; i < auxCursosPrevios.length; i++) {
+                        cursoNuevo.cursosPrevios[i] = Integer.parseInt(auxCursosPrevios[i]);
+                    }
+                } else {
+                    cursoNuevo.cursosPrevios = null;
+                }
+                return cursoNuevo;
+            } else {
+                throw new RuntimeException("Curso no encontrado");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error leyendo el curso");
+            throw new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<Integer> extraerTodosCursos() {
         ArrayList<Integer> codigoCursos = new ArrayList<>();
         try {

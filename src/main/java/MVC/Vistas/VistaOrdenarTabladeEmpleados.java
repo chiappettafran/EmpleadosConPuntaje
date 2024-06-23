@@ -68,18 +68,22 @@ public class VistaOrdenarTabladeEmpleados extends JFrame {
         puntaje.setVerticalAlignment(SwingConstants.CENTER);
         panel.add(puntaje);
 
-        Inscripcion inscripcion = new Inscripcion();
         HashMap<Empleado, Double> empleadoPuntaje = new HashMap<>();
         for (Empleado empleado : empleados) {
             double puntajeDouble = 0;
-            ArrayList<Integer> cursosAprobados = inscripcion.cursosAprobados(empleado.getLegajo());
-            ArrayList<Integer> cursosNoAprobados = inscripcion.cursosNoAprobados(empleado.getLegajo());
+            ArrayList<Integer> cursosAprobados = Inscripcion.cursosAprobados(empleado.getLegajo());
+            ArrayList<Integer> cursosNoAprobados = Inscripcion.cursosNoAprobados(empleado.getLegajo());
+
 
             for (Integer codigoCurso : cursosAprobados) {
-                puntajeDouble += Curso.extraerCurso(codigoCurso).getPuntaje() * 2;
+                Curso curso = Curso.extraerCurso1(codigoCurso);
+                double puntajeCurso = curso.getPuntaje();
+                puntajeDouble += (puntajeCurso * 2) * 100;
             }
             for (Integer codigoCurso : cursosNoAprobados) {
-                puntajeDouble += Curso.extraerCurso(codigoCurso).getPuntaje();
+                Curso curso = Curso.extraerCurso1(codigoCurso);
+                double puntajeCurso = curso.getPuntaje();
+                puntajeDouble += puntajeCurso * 100;
             }
 
             empleadoPuntaje.put(empleado, puntajeDouble);
@@ -117,6 +121,5 @@ public class VistaOrdenarTabladeEmpleados extends JFrame {
         vistaOrdenarPuntajes.setLocationRelativeTo(null);
         vistaOrdenarPuntajes.setVisible(true);
     }
-
 
 }

@@ -84,43 +84,38 @@ public class Inscripcion {
         return legajoCursadores;
     }
 
-    public ArrayList<Integer> cursosAprobados(Integer legajo){
+    public static ArrayList<Integer> cursosAprobados(Integer legajo) {
         ArrayList<Integer> listadoCursosAprobados = new ArrayList<>();
         try {
-            ResultSet cursosAprobadosBD = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM inscripciones WHERE legajo_empleado = "+ legajo);
-            cursosAprobadosBD.next();
-
-            if(Boolean.parseBoolean(cursosAprobadosBD.getString(6).toLowerCase()) == true){
-                listadoCursosAprobados.add(Integer.parseInt(cursosAprobadosBD.getString(3)));
+            ResultSet cursosAprobadosBD = Conexion.getConexion().createStatement().executeQuery(
+                    "SELECT * FROM inscripciones WHERE legajo_empleado = " + legajo + " AND aprobado = TRUE"
+            );
+            while (cursosAprobadosBD.next()) {
+                listadoCursosAprobados.add(cursosAprobadosBD.getInt("codigo_materia"));
             }
-        }catch (SQLException e){
-            System.out.println("Error leyendo Cursos");
+        } catch (SQLException e) {
+            System.out.println("Error leyendo Cursos Aprobados");
             throw new RuntimeException(e);
         }
-        if(listadoCursosAprobados != null){
-            return listadoCursosAprobados;
-        }else {
-            return null;
-        }
-
+        return listadoCursosAprobados;
     }
-    public ArrayList<Integer> cursosNoAprobados(Integer legajo){
+
+    public static ArrayList<Integer> cursosNoAprobados(Integer legajo) {
         ArrayList<Integer> listadoCursosNoAprobados = new ArrayList<>();
         try {
-            ResultSet cursosDesaprobadosBD = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM inscripciones WHERE legajo_empleado = "+ legajo);
-            cursosDesaprobadosBD.next();
-
-            if (Boolean.parseBoolean(cursosDesaprobadosBD.getString(6).toLowerCase()) == false) {
-                listadoCursosNoAprobados.add(Integer.parseInt(cursosDesaprobadosBD.getString(3)));
+            ResultSet cursosDesaprobadosBD = Conexion.getConexion().createStatement().executeQuery(
+                    "SELECT * FROM inscripciones WHERE legajo_empleado = " + legajo + " AND aprobado = FALSE"
+            );
+            while (cursosDesaprobadosBD.next()) {
+                listadoCursosNoAprobados.add(cursosDesaprobadosBD.getInt("codigo_materia"));
             }
-        }catch (SQLException e){
-            System.out.println("Error leyendo Cursos");
-        }if(listadoCursosNoAprobados != null){
-            return listadoCursosNoAprobados;
-        }else {
-            return null;
+        } catch (SQLException e) {
+            System.out.println("Error leyendo Cursos No Aprobados");
+            throw new RuntimeException(e);
         }
+        return listadoCursosNoAprobados;
     }
+
 
 
 
