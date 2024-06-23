@@ -38,7 +38,7 @@ public class Curso {
             }
             return cursoNuevo;
         } catch (SQLException e) {
-            System.out.println("Error leyendo el curso 1");
+            System.out.println("Error leyendo el curso");
             throw new RuntimeException(e);
         }
     }
