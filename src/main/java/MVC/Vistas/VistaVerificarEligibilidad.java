@@ -10,7 +10,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -163,16 +166,17 @@ public class VistaVerificarEligibilidad extends JFrame {
         return panelConsultar;
     }
 
-    public JPanel panelDatosCorrelatividades(Empleado empleado, Curso curso){
+    public JPanel panelDatosCorrelatividades(Empleado empleado, Curso curso) {
         Inscripcion inscripcion = new Inscripcion();
         ArrayList<Integer> listadoCursosAprobados = inscripcion.cursosAprobados(empleado.getLegajo());
         int[] cursosPrevios = curso.getCursosPrevios();
         JPanel panelDatosCorrelatividades = new JPanel();
-        panelDatosCorrelatividades.setBorder(BorderFactory.createEmptyBorder(70,20,70,20));
+        panelDatosCorrelatividades.setBorder(BorderFactory.createEmptyBorder(70, 20, 70, 20));
         Font fuente = new Font(Font.SANS_SERIF, Font.PLAIN, 15);
         Font fuente2 = new Font(Font.SANS_SERIF, Font.BOLD, 15);
-        if (cursosPrevios != null){
-            panelDatosCorrelatividades.setLayout(new GridLayout(cursosPrevios.length+1, 3, 10,10));
+
+        if (cursosPrevios != null) {
+            panelDatosCorrelatividades.setLayout(new GridLayout(cursosPrevios.length + 1, 3, 10, 10));
             JLabel jLabel1 = new JLabel("Codigo");
             jLabel1.setFont(fuente);
             jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -192,7 +196,7 @@ public class VistaVerificarEligibilidad extends JFrame {
             panelDatosCorrelatividades.add(jLabel2);
             panelDatosCorrelatividades.add(jLabel3);
 
-            for(int i = 0; i < cursosPrevios.length; i++){
+            for (int i = 0; i < cursosPrevios.length; i++) {
                 JLabel codigo = new JLabel(String.valueOf(cursosPrevios[i]));
                 codigo.setFont(fuente2);
                 codigo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -207,15 +211,32 @@ public class VistaVerificarEligibilidad extends JFrame {
 
                 panelDatosCorrelatividades.add(curso1);
 
-                if(listadoCursosAprobados.contains(cursosPrevios[i])){
-                    JLabel aprobado = new JLabel("Curso Aprobado!!");
-                    aprobado.setFont(fuente2);
-                    aprobado.setHorizontalAlignment(SwingConstants.CENTER);
-                    aprobado.setVerticalAlignment(SwingConstants.CENTER);
-                    aprobado.setForeground(Color.GREEN);
+                if (listadoCursosAprobados.contains(cursosPrevios[i])) {
+                    Date fechaFin = inscripcion.getFechaFinCurso(empleado.getLegajo(), cursosPrevios[i]);
+                    int vigenciaMeses = Curso.extraerCurso(cursosPrevios[i]).getVigenciaMeses();
+                    LocalDate fechaActual = LocalDate.now();
 
-                    panelDatosCorrelatividades.add(aprobado);
-                }else {
+                    LocalDate fechaFinLocalDate = fechaFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+                    LocalDate fechaExpiracion = fechaFinLocalDate.plusMonths(vigenciaMeses);
+
+                    if (fechaActual.isBefore(fechaExpiracion)) {
+                        JLabel aprobado = new JLabel("Curso Aprobado y Vigente!!");
+                        aprobado.setFont(fuente2);
+                        aprobado.setHorizontalAlignment(SwingConstants.CENTER);
+                        aprobado.setVerticalAlignment(SwingConstants.CENTER);
+                        aprobado.setForeground(Color.GREEN);
+
+                        panelDatosCorrelatividades.add(aprobado);
+                    } else {
+                        JLabel aprobado = new JLabel("Curso Aprobado pero No Vigente!!");
+                        aprobado.setFont(fuente2);
+                        aprobado.setHorizontalAlignment(SwingConstants.CENTER);
+                        aprobado.setVerticalAlignment(SwingConstants.CENTER);
+                        aprobado.setForeground(Color.ORANGE);
+
+                        panelDatosCorrelatividades.add(aprobado);
+                    }
+                } else {
                     JLabel aprobado = new JLabel("Curso No Aprobado!!");
                     aprobado.setFont(fuente2);
                     aprobado.setHorizontalAlignment(SwingConstants.CENTER);
@@ -225,7 +246,7 @@ public class VistaVerificarEligibilidad extends JFrame {
                     panelDatosCorrelatividades.add(aprobado);
                 }
             }
-        }else {
+        } else {
             JLabel jLabel = new JLabel("ESTA MATERIA NO TIENE CURSOS PREVIOS!");
             jLabel.setFont(fuente2);
             jLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -234,5 +255,6 @@ public class VistaVerificarEligibilidad extends JFrame {
         }
         return panelDatosCorrelatividades;
     }
+
 
 }

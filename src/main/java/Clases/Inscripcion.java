@@ -67,6 +67,22 @@ public class Inscripcion {
             throw new RuntimeException(e);
         }
     }
+    public static Date getFechaFinCurso(int legajoEmpleado, int codigoCurso) {
+        try {
+            ResultSet curso = Conexion.getConexion().createStatement().executeQuery(
+                    "SELECT fecha_fin FROM inscripciones WHERE legajo_empleado = " + legajoEmpleado +
+                            " AND codigo_materia = " + codigoCurso + " AND aprobado = TRUE"
+            );
+
+            if(curso.next()) {
+                return Conexion.deserializarFecha(curso.getString("fecha_fin"));
+            }
+            return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static ArrayList<Integer> legajosCursadores() {
         ArrayList<Integer> legajoCursadores = new ArrayList<>();
         try {

@@ -16,7 +16,7 @@ public class VistaPrincipal extends JFrame{
     private final Font fuenteBotones = new Font(Font.SANS_SERIF, Font.BOLD, 15);
 
     public VistaPrincipal(){
-        super("Gestion de Empleados y Cursos :3");
+        super("Gestion de Empleados y Cursos");
         crearVentana();
     }
 
