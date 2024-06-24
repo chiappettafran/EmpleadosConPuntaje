@@ -73,7 +73,6 @@ public class Curso {
             throw new RuntimeException(e);
         }
     }
-
     public static ArrayList<Integer> extraerTodosCursos() {
         ArrayList<Integer> codigoCursos = new ArrayList<>();
         try {

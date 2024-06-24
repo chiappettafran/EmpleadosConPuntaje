@@ -18,6 +18,8 @@ public class Empleado {
     private Date fechaIngreso;
     private Date fechaVencimientoContrato;
     private double sueldoBase;
+    private ArrayList<Curso> cursando;
+    private ArrayList<Sueldo> bonosDeSueldo;
 
     public Empleado() {
     }
@@ -48,7 +50,6 @@ public class Empleado {
             throw new RuntimeException();
         }
     }
-
     public static boolean esPermanente(int legajo) {
         try {
             ResultSet resultSetEsPermanente = Conexion.getConexion().createStatement().executeQuery("SELECT permanente FROM EMPLEADOS WHERE legajo ="+legajo);
@@ -59,7 +60,6 @@ public class Empleado {
             throw new RuntimeException(e);
         }
     }
-
     public static Empleado extraerEmpleado(int legajoEmpleado) {
         try {
             ResultSet empleado = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM empleados WHERE legajo = "+legajoEmpleado);
@@ -201,5 +201,19 @@ public class Empleado {
     }
     public void setSueldoBase(double sueldoBase) {
         this.sueldoBase = sueldoBase;
+    }
+
+    public ArrayList<Curso> getCursando() {
+        return cursando;
+    }
+    public void setCursando(ArrayList<Curso> cursando) {
+        this.cursando = cursando;
+    }
+
+    public ArrayList<Sueldo> getBonosDeSueldo() {
+        return bonosDeSueldo;
+    }
+    public void setBonosDeSueldo(ArrayList<Sueldo> bonosDeSueldo) {
+        this.bonosDeSueldo = bonosDeSueldo;
     }
 }

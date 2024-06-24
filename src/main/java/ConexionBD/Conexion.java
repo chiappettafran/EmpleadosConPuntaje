@@ -10,11 +10,14 @@ public class Conexion {
 
     private static Connection setConexion() {
         try {
-            Connection connection = DriverManager.getConnection("jdbc:h2:./src/main/java/BaseDeDatos/BaseObjetosSA", "ObjetosSA", "serializable");
+            Connection connection = DriverManager.getConnection("jdbc:h2:./src/main/java/BaseDeDatos/BaseObjetosSA",
+                    "ObjetosSA", "serializable");
             System.out.println("Conexión exitosa!");
             return connection;
         } catch (Exception e) {
-            int seleccion = JOptionPane.showConfirmDialog(null,"Se produjo un error al conectar con la base de datos. Cierre la consola de administración. Reintentar?", "Error de conexion", JOptionPane.OK_CANCEL_OPTION);
+            int seleccion = JOptionPane.showConfirmDialog(null,
+                    "Se produjo un error al conectar con la base de datos. Cierre la consola de administración. Reintentar?",
+                    "Error de conexion", JOptionPane.OK_CANCEL_OPTION);
 
             switch (seleccion) {
                 case 0:

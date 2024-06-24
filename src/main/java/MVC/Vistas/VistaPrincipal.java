@@ -16,7 +16,7 @@ public class VistaPrincipal extends JFrame{
     private final Font fuenteBotones = new Font(Font.SANS_SERIF, Font.BOLD, 15);
 
     public VistaPrincipal(){
-        super("Gestion de Empleados y Cursos");
+        super("Empleados con Puntaje");
         crearVentana();
     }
 
@@ -63,9 +63,5 @@ public class VistaPrincipal extends JFrame{
         panelInferior.add(liquidarSueldosButton);
 
         return panelInferior;
-    }
-
-    public static void main(String[] args) {
-        new VistaPrincipal().setVisible(true);
     }
 }

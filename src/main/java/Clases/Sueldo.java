@@ -44,7 +44,44 @@ public class Sueldo {
             JOptionPane.showMessageDialog(null, "Sueldos correspondientes al periodo "+periodoLiquidacion(fechaLiquidacion)+" liquidados con exito.");
         }
     }
+    public static ArrayList<String> getPeriodosDeLiquidacionLegajo(int legajo) {
+        try {
+            ResultSet periodosLiquidacionResultSet = Conexion.getConexion().createStatement().executeQuery("SELECT periodo_liquidacion FROM sueldos WHERE legajo_empleado ="+legajo);
+            ArrayList<String> periodosLiquidacion = new ArrayList<>();
+            while (periodosLiquidacionResultSet.next()) {
+                periodosLiquidacion.add(periodosLiquidacionResultSet.getString(1));
+            }
+            return periodosLiquidacion;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static Sueldo extraerBono (int legajo, String periodo) {
+        try {
+            Sueldo bonoDeSueldo = new Sueldo();
+            ResultSet bonoSueldoResultSet = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM sueldos WHERE legajo_empleado = "+legajo+" AND periodo_liquidacion = '"+periodo+"'");
+            bonoSueldoResultSet.next();
+            bonoDeSueldo.codigo = bonoSueldoResultSet.getInt(1);
+            bonoDeSueldo.legajoEmpleado = bonoSueldoResultSet.getInt(2);
+            bonoDeSueldo.fechaLiquidacion = Conexion.deserializarFecha(bonoSueldoResultSet.getString(3));
+            bonoDeSueldo.sueldoBase = bonoSueldoResultSet.getDouble(4);
+            bonoDeSueldo.incentivoCapacitacion = bonoSueldoResultSet.getDouble(5);
+            bonoDeSueldo.periodoLiquidacion = bonoSueldoResultSet.getString(6);
+            bonoDeSueldo.importeBruto = bonoSueldoResultSet.getDouble(7);
 
+            return bonoDeSueldo;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+    public static String periodoLiquidacion (Date fechaLiquidacion) {
+        Date fechaLiquidacionAux = (Date) fechaLiquidacion.clone();
+        fechaLiquidacionAux.setMonth(fechaLiquidacionAux.getMonth()-1);
+        String fechaPeriodo = Conexion.serializarFecha(fechaLiquidacionAux);
+        return fechaPeriodo.substring(0, fechaPeriodo.length()-3);
+    }
     private void insertarBono (Sueldo bono) {
         try {
             Conexion.getConexion().createStatement().execute("INSERT INTO sueldos (legajo_empleado, fecha_liquidacion, sueldo_base, incentivos_capacitaciones, periodo_liquidacion, importe_bruto) " +
@@ -54,7 +91,6 @@ public class Sueldo {
             throw new RuntimeException(e);
         }
     }
-
     private double calcularIncentivo(Integer legajoEmpleado, Date fechaLiquidacion) {
         double incentivo = 0;
 
@@ -80,14 +116,6 @@ public class Sueldo {
 
         return incentivo;
     }
-
-    public static String periodoLiquidacion (Date fechaLiquidacion) {
-        Date fechaLiquidacionAux = (Date) fechaLiquidacion.clone();
-        fechaLiquidacionAux.setMonth(fechaLiquidacionAux.getMonth()-1);
-        String fechaPeriodo = Conexion.serializarFecha(fechaLiquidacionAux);
-        return fechaPeriodo.substring(0, fechaPeriodo.length()-3);
-    }
-
     private boolean periodoYaLiquidado (Date fechaLiquidacion) {
         try {
             ResultSet resultSet = Conexion.getConexion().createStatement().executeQuery("SELECT codigo FROM SUELDOS WHERE periodo_liquidacion = '"+periodoLiquidacion(fechaLiquidacion)+"'");
@@ -97,39 +125,6 @@ public class Sueldo {
         }
     }
 
-    public static ArrayList<String> getPeriodosDeLiquidacionLegajo(int legajo) {
-        try {
-            ResultSet periodosLiquidacionResultSet = Conexion.getConexion().createStatement().executeQuery("SELECT periodo_liquidacion FROM sueldos WHERE legajo_empleado ="+legajo);
-            ArrayList<String> periodosLiquidacion = new ArrayList<>();
-            while (periodosLiquidacionResultSet.next()) {
-                periodosLiquidacion.add(periodosLiquidacionResultSet.getString(1));
-            }
-            return periodosLiquidacion;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static Sueldo extraerBono (int legajo, String periodo) {
-        try {
-            Sueldo bonoDeSueldo = new Sueldo();
-            ResultSet bonoSueldoResultSet = Conexion.getConexion().createStatement().executeQuery("SELECT * FROM sueldos WHERE legajo_empleado = "+legajo+" AND periodo_liquidacion = '"+periodo+"'");
-            bonoSueldoResultSet.next();
-            bonoDeSueldo.codigo = bonoSueldoResultSet.getInt(1);
-            bonoDeSueldo.legajoEmpleado = bonoSueldoResultSet.getInt(2);
-            bonoDeSueldo.fechaLiquidacion = Conexion.deserializarFecha(bonoSueldoResultSet.getString(3));
-            bonoDeSueldo.sueldoBase = bonoSueldoResultSet.getDouble(4);
-            bonoDeSueldo.incentivoCapacitacion = bonoSueldoResultSet.getDouble(5);
-            bonoDeSueldo.periodoLiquidacion = bonoSueldoResultSet.getString(6);
-            bonoDeSueldo.importeBruto = bonoSueldoResultSet.getDouble(7);
-
-            return bonoDeSueldo;
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            throw new RuntimeException(e);
-        }
-    }
 
     public int getCodigo() {
         return codigo;

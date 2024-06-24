@@ -99,7 +99,6 @@ public class Inscripcion {
         }
         return legajoCursadores;
     }
-
     public static ArrayList<Integer> cursosAprobados(Integer legajo) {
         ArrayList<Integer> listadoCursosAprobados = new ArrayList<>();
         try {
@@ -115,7 +114,6 @@ public class Inscripcion {
         }
         return listadoCursosAprobados;
     }
-
     public static ArrayList<Integer> cursosNoAprobados(Integer legajo) {
         ArrayList<Integer> listadoCursosNoAprobados = new ArrayList<>();
         try {

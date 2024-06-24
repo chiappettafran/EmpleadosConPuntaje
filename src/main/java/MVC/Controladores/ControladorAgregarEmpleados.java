@@ -30,7 +30,9 @@ public class ControladorAgregarEmpleados {
             public void actionPerformed(ActionEvent e) {
                 try {
                     Date fechaVencimiento = null;
-                    if (vista.jTextFieldDni.getText().isBlank() || vista.jTextFieldNombre.getText().isBlank() || vista.jTextFieldFuncion.getText().isBlank() || vista.jTextFieldSueldoBase.getText().isBlank()) {
+                    if (vista.jTextFieldDni.getText().isBlank() || vista.jTextFieldNombre.getText().isBlank() ||
+                            vista.jTextFieldFuncion.getText().isBlank() || vista.jTextFieldSueldoBase.getText().isBlank() ||
+                                vista.jTextFieldtelefono.getText().isBlank()) {
                         throw new DatoObligatorioNullException();
                     } else if (!vista.jTextFieldFechaVencimientoContrato.getText().isBlank()) {
                         try {

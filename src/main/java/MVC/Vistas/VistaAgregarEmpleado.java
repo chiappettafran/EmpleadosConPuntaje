@@ -54,7 +54,7 @@ public class VistaAgregarEmpleado extends JFrame {
         jTextFieldDireccion = new JTextField();
         panelAtributosEmpleado.add(jTextFieldDireccion);
 
-        panelAtributosEmpleado.add(new JLabel("Telefono:"));
+        panelAtributosEmpleado.add(new JLabel("Telefono de contacto*:"));
         jTextFieldtelefono = new JTextField();
         panelAtributosEmpleado.add(jTextFieldtelefono);
 
